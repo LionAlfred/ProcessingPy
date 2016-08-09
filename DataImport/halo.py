@@ -5,7 +5,7 @@
 # Author: Wang Yang
 # mail: wangyang23@mail.sysu.edu.cn
 # Created  Time: 2016-07-29 03:23:45 PM
-# Modified Time: 2016-08-02 22:23:57
+# Modified Time: 2016-08-09 18:42:52
 # =================================================
 
 
@@ -96,14 +96,19 @@ class Halo:
                     if flist[-(len(keyword)):] == keyword:
                         pa.append(os.path.join(dirpath, flist))
             for flist in pa:
-                if ftype == 'ahf':
-                    self.import_property_ahf(flist, col_used=col,
-                                             col_title=self._title_ahf)
-                elif ftype == 'compact':
-                    self.import_property_compact(flist, col_used=col,
-                                                 col_title=self._title_compact)
+                self.import_one_snap(flist, col=col, ftype=ftype)
         else:
             print 'Path should be the directory of all halos files'
+
+    def import_one_snap(self, filename,
+                        col=_default_col,
+                        ftype='compact'):
+        if ftype == 'ahf':
+            self.import_property_ahf(filename, col_used=col,
+                                     col_title=self._title_ahf)
+        elif ftype == 'compact':
+            self.import_property_compact(filename, col_used=col,
+                                         col_title=self._title_compact)
 
     def import_property_ahf(self, fname,
                             col_used=_default_col,
