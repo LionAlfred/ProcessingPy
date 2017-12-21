@@ -5,7 +5,7 @@
 # Author: Wang Yang
 # mail: wangyang23@mail.sysu.edu.cn
 # Created  Time: 2016-07-29 03:23:45 PM
-# Modified Time: 2016-08-09 18:42:52
+# Modified Time: 2016-08-10 18:48:13
 # =================================================
 
 
@@ -80,7 +80,7 @@ class Halo:
                 print filename
                 print 'can\'t find snap for redshift ' + temp
                 return None
-        except NameError:
+        except AttributeError:
             print 'Please load zlist file first'
 
     def load_z(self, fname):
@@ -134,7 +134,7 @@ class Halo:
                                 col_title=_title_compact,
                                 dtype=_type_compact):
         """
-        import halos properties of one snap, for ahf format
+        import halos properties of one snap, for compact format
         """
         snap = self._get_snap(fname)
         if snap is None:

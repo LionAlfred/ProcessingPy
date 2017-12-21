@@ -5,7 +5,7 @@
 # Author: Wang Yang
 # mail: wangyang23@mail.sysu.edu.cn
 # Created  Time: 2016-07-29 03:24:40 PM
-# Modified Time: 2016-08-02 22:19:13
+# Modified Time: 2016-08-11 16:36:28
 # =================================================
 
 
@@ -20,8 +20,8 @@ class Zlist:
 
     def __init__(self, fname):
         if os.path.isfile(fname):
-            self.z, self.a, self.t, = np.loadtxt(fname, skiprows=1,
-                                                 unpack=True)
+            index, self.z, self.a, self.t, = np.loadtxt(fname, skiprows=1,
+                                                        unpack=True)
         else:
             print("File %s does not exist" % (fname))
             pass
